@@ -28,7 +28,8 @@ github_username:  jekyll
 markdown: kramdown
 # theme: monophase
 remote_theme: zivhub/monophase@main
-
+categories_path: /categories/
+tags_path: /tags/
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
