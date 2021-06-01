@@ -1,5 +1,5 @@
 ---
-title: 63224
+title: Categories
 permalink: /categories/
 layout: archive
 type: categories
