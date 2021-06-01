@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-低欲望躺平
+无名之辈
 
 <!-- You can find the source code for Minima at GitHub:
 [jekyll][jekyll-organization] / -->
