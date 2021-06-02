@@ -25,7 +25,7 @@ github_username:  OneMore14
 # Build settings
 markdown: kramdown
 # theme: monophase
-remote_theme: zivhub/monophase@main
+remote_theme: OneMore14/monophase@main
 categories_path: /categories/
 tags_path: /tags/
 plugins:
