@@ -45,23 +45,23 @@ categories: 分布式
 第<font face="MT EXTRA">*i*个</font>将军的决定。为了满足条件A，下面的条件必须被满足:
 
     1. 每个忠诚将军必须获得同样的信息v(1)、v(2)...v(n)
-条件1暗示<font face="MT EXTRA">*v(i)* </font> 不能直接被设置为从第<font face="MT EXTRA">*i* </font>个
+条件1暗示 *<font face="MT EXTRA">v(i)</font>* 不能直接被设置为从第<font face="MT EXTRA">*i* </font>个
 将军那里获得的信息（因为有叛徒给不同人发不同消息）。
-所以可能使<font face="MT EXTRA">*v(i)* </font>并不等于从第<font face="MT EXTRA">*i*</font>个将军那里得到的消息。但如果要满足条件B，那这种考虑又是不必要的。
+所以可能使 *<font face="MT EXTRA">v(i)</font>* 并不等于从第<font face="MT EXTRA">*i*</font>个将军那里得到的消息。但如果要满足条件B，那这种考虑又是不必要的。
 因为条件B已经说明不会因为部分叛徒的存在而导致最终决策错误，所以允许错误消息存在。
-也因此我们对每一个<font face="MT EXTRA">*i*</font>有如下要求:
+也因此我们对每一个 *<font face="MT EXTRA">i</font>* 有如下要求:
 
     2. 如果第i个将军是忠诚的，那么他发出的消息会被其他忠诚将军使用，且记录为v(i)
 
-我们可以重写条件1为，无论第<font face="MT EXTRA">*i*</font>个将军是否忠诚，都有:
+我们可以重写条件1为，无论第 *<font face="MT EXTRA">i</font>* 个将军是否忠诚，都有:
 
     1' 任意两个忠诚将军使用相同的v(i)
 
-条件1'和条件2都只描述了单独第<font face="MT EXTRA">*i*</font>个将军的情况。
+条件1'和条件2都只描述了单独第 *<font face="MT EXTRA">i</font>* 个将军的情况。
 我们可以进一步思考单独一个将军是如何把消息发出给其他将军的。
-考虑有有一个指挥官(commanding general)和他的<font face="MT EXTRA">*n - 1*</font>个副官(lieutenants)，产生如下问题:
+考虑有有一个指挥官(commanding general)和他的 *<font face="MT EXTRA">n - 1</font>* 个副官(lieutenants)，产生如下问题:
 
-<font size=5>拜占庭将军问题:</font> 一个指挥官给<font face="MT EXTRA">*n - 1*</font>个副官发送命令，且:
+<font size=5>拜占庭将军问题:</font> 一个指挥官给 *<font face="MT EXTRA">n - 1</font>* 个副官发送命令，且:
 
     IC1. 所有忠诚的副官都遵守相同的命令
     IC2. 如果指挥官是忠诚的，那么所有忠诚的副官都遵守他发送的指令
@@ -69,11 +69,11 @@ categories: 分布式
 条件IC1.和IC2.被称为交互一致性条件(interactive consistency conditions)。
 注意，如果指挥官是忠诚的，那么我们可以从IC2推导出IC1，但实际上指挥官未必忠诚。
 
-为了解决原始的问题(满足条件A、B的问题)，第<font face="MT EXTRA">*i*</font>个将军把他的<font face="MT EXTRA">*v(i)*</font>值通过拜占庭将军问题的方式以命令发送给其他将军，命令内容是“以我发送的值作为<font face="MT EXTRA">*v(i)*</font>”
+为了解决原始的问题(满足条件A、B的问题)，第 *<font face="MT EXTRA">i</font>* 个将军把他的<font face="MT EXTRA">*v(i)*</font>值通过拜占庭将军问题的方式以命令发送给其他将军，命令内容是“以我发送的值作为<font face="MT EXTRA">*v(i)*</font>”
 
 # 2. IMPOSSIBILITY RESULTS
 
 拜占庭将军问题看上去比较简单，但实际结论是令人惊讶的: 如果信息以口信的方式发送，则信息完全在传信人的控制下，这时必须有超过三分之二的忠诚将军才会有解。
 举个例子，如果现在总共3位将军中有1位叛徒，那么此时无解，
 
-![avatar](../image/The-Byzantine-Generals-Problem.png)
+![avatar](../images/The-Byzantine-Generals-Problem.png)
