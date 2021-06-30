@@ -52,14 +52,16 @@ categories: 分布式
 也因此我们对每一个<font face="MT EXTRA">*i*</font>有如下要求:
 
     2. 如果第i个将军是忠诚的，那么他发出的消息会被其他忠诚将军使用，且记录为v(i)
+
 我们可以重写条件1为，无论第<font face="MT EXTRA">*i*</font>个将军是否忠诚，都有:
 
     1' 任意两个忠诚将军使用相同的v(i)
+
 条件1'和条件2都只描述了单独第<font face="MT EXTRA">*i*</font>个将军的情况。
 我们可以进一步思考单独一个将军是如何把消息发出给其他将军的。
 考虑有有一个指挥官(commanding general)和他的<font face="MT EXTRA">*n - 1*</font>个副官(lieutenants)，产生如下问题:
 
-<font size=5>**拜占庭将军问题**</font>: 一个指挥官给<font face="MT EXTRA">*n - 1*</font>个副官发送命令，且:
+<font size=5>拜占庭将军问题:</font> 一个指挥官给<font face="MT EXTRA">*n - 1*</font>个副官发送命令，且:
 
     IC1. 所有忠诚的副官都遵守相同的命令
     IC2. 如果指挥官是忠诚的，那么所有忠诚的副官都遵守他发送的指令
