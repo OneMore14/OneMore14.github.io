@@ -41,13 +41,14 @@ categories: 分布式
 但是，上述算法的条件A实际是不能满足的，因为叛徒可以随意发送消息，给不同的将军发送不同的消息，
 这样忠诚将军得到的信息是不一样的。
 
-设一共有<font face="MT EXTRA">*n*个</font>将军，<font face="MT EXTRA">*v(i)* </font> 代表
-第<font face="MT EXTRA">*i*个</font>将军的决定。为了满足条件A，下面的条件必须被满足:
+设一共有 *<font face="MT EXTRA">n个</font>* 将军，*<font face="MT EXTRA">v(i)</font>* 代表
+第 *<font face="MT EXTRA">i个</font>* 将军的决定。为了满足条件A，下面的条件必须被满足:
 
     1. 每个忠诚将军必须获得同样的信息v(1)、v(2)...v(n)
-条件1暗示 *<font face="MT EXTRA">v(i)</font>* 不能直接被设置为从第<font face="MT EXTRA">*i* </font>个
+
+条件1暗示 *<font face="MT EXTRA">v(i)</font>* 不能直接被设置为从第 *<font face="MT EXTRA">i</font>* 个
 将军那里获得的信息（因为有叛徒给不同人发不同消息）。
-所以可能使 *<font face="MT EXTRA">v(i)</font>* 并不等于从第<font face="MT EXTRA">*i*</font>个将军那里得到的消息。但如果要满足条件B，那这种考虑又是不必要的。
+所以可能使 *<font face="MT EXTRA">v(i)</font>* 并不等于从第 *<font face="MT EXTRA">i</font>* 个将军那里得到的消息。但如果要满足条件B，那这种考虑又是不必要的。
 因为条件B已经说明不会因为部分叛徒的存在而导致最终决策错误，所以允许错误消息存在。
 也因此我们对每一个 *<font face="MT EXTRA">i</font>* 有如下要求:
 
@@ -76,4 +77,4 @@ categories: 分布式
 拜占庭将军问题看上去比较简单，但实际结论是令人惊讶的: 如果信息以口信的方式发送，则信息完全在传信人的控制下，这时必须有超过三分之二的忠诚将军才会有解。
 举个例子，如果现在总共3位将军中有1位叛徒，那么此时无解，
 
-![avatar](../images/The-Byzantine-Generals-Problem.png)
+![avatar](images/The-Byzantine-Generals-Problem.png)
