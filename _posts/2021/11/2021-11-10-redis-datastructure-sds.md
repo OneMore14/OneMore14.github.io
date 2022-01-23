@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Redis v6.0.2 数据结构-字符串sds"
+title:  "Redis v6.2.0 数据结构-字符串sds"
 date:   2021-11-10 10:39:01 +0800
 categories: Redis Redis数据结构
 ---
