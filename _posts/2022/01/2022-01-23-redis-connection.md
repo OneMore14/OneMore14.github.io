@@ -6,9 +6,12 @@ categories: Redis
 ---
 
 
+
 ## 0. 启动
 
 以standalone模式按默认配置启动redis-server，只考虑最基本的情况
+
+
 
 
 ## 1. 准备连接
