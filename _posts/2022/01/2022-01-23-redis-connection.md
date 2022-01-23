@@ -7,7 +7,8 @@ categories: Redis
 
 以standalone模式按默认配置启动redis-server，只考虑最基本的情况
 
-&nbsp;
+
+## 1. 准备连接
 
 ```c
 struct redisServer {
@@ -65,5 +66,7 @@ for (j = 0; j < numevents; j++) {
 在aeProcessEvents()中，aeApiPoll()会调用epoll_wait()获取当前已经就绪的事件，然后for循环依次处理，文件可读事件就会调用rfileProc回调函数。
 
 假设这时有客户端发起连接，则for循环中rfileProc实际上就调用了之前注册的acceptTcpHandler函数用于处理连接请求。
+
+## 2. 准备读取 
 
 在acceptTcpHandler中相当于是执行了listen之后的一次accept()，此时已经和client建立了连接但还没有读到client准备执行的命令。这时的情况就类似之前执行了listen()但没有accept()。实际上处理方式也和之前类似，即再为当前的连接设置一个文件读事件，将连接的socket加入到server的epoll对象中，回调函数是readQueryFromClient()，当有客户端命令发来时，readQueryFromClient()就可以读到客户端命令并调用相关的执行函数了。
