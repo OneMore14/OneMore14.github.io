@@ -63,3 +63,21 @@ $\varepsilon$是一个从非负整数到非负实数的函数
 Attack 1:    two time pad是不安全的，如果拿到两个被同一密码加密的密文，这两个密文做异或会得到原文的异或值，足够解密。
 
 Attack 2:    no integrity 攻击者截获密文虽然不能解码，但可以对密文再用自己的密钥对密文加密，使接收者解密后得不到正确信息 
+
+
+$$
+\begin{aligned}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{aligned}
+$$
