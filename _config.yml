@@ -43,4 +43,4 @@ permalink: /:year/:month/:day/:title:output_ext
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/
-#   - vendor/ruby/
+#   - vendor/ruby/ 
