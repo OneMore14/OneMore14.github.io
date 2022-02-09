@@ -1,10 +1,3 @@
-<!-- ---
-layout: post
-title:  "MapReduce 论文阅读"
-date:   2021-11-22 20:34:01 +0800
-categories: 6.824
---- -->
-
 ---
 layout: post
 title:  "6.S081 xv6 sbook chapter1: Operating system interfaces"
@@ -18,6 +11,10 @@ categories: 6.S0s81
 
 ### 1 Introduction
 
+layout: post
+title:  "MapReduce 论文阅读"
+date:   2021-11-22 20:34:01 +0800
+categories: 6.824
 
 
 ### 2 Programming Model
