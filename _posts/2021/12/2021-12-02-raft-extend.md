@@ -1,9 +1,9 @@
-
+---
 layout: post
 title:  "In Search of an Understandable Consensus Algorithm"
 date:   2021-12-02 10:34:01 +0800
 categories: 6.824
-
+---
 
 
 
