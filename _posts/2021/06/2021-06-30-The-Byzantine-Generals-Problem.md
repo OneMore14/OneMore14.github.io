@@ -77,4 +77,4 @@ categories: 分布式
 拜占庭将军问题看上去比较简单，但实际结论是令人惊讶的: 如果信息以口信的方式发送，则信息完全在传信人的控制下，这时必须有超过三分之二的忠诚将军才会有解。
 举个例子，如果现在总共3位将军中有1位叛徒，那么此时无解，
 
-![picture1](The-Byzantine-Generals-Problem.png)
+![picture1](/assets/2021/06/The-Byzantine-Generals-Problem.png)
