@@ -18,7 +18,7 @@ ZooKeeper暴露给client一套抽象的data nodes(znodes)，按namespace的层�
 
 
 
-![image-20211205094506557](./2021-12-05-zookeeper.assets/image-20211205094506557.png)
+![image-20211205094506557](/assets/2021/12/zookeeper/image-20211205094506557.png)
 
 Client可以创建两种类型的znode
 

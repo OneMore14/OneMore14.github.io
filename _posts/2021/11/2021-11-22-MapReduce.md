@@ -74,7 +74,7 @@ MapReduce可以根据具体情况有不同的实现，论文作者介绍了在Go
 
 
 
-![image-20211122211703002](./2021-11-22-MapReduce.assets/image-20211122211703002.png)
+![image-20211122211703002](/assets/2021/11/mapreduce/image-20211122211703002.png)
 
 ### 3.1 Execution Overview
 
