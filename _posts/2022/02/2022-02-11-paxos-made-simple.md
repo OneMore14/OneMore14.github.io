@@ -2,7 +2,7 @@
 layout: post
 title:  "Paxos Made Simple"
 date:   2022-02-11 10:34:01 +0800
-categories: "6.824" 分布式
+categories: "6.824 分布式"
 ---
 
 The Paxos algorithm, when presented in plain English, is very simple.   --Leslie Lamport
