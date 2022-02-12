@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ZooKeeper论文 ZooKeeper: Wait-free coordination for Internet-scale systems"
+title:  "ZooKeeper: Wait-free coordination for Internet-scale systems"
 date:   2021-12-05 10:34:01 +0800
 categories: "6.824"
 ---

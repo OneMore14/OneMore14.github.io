@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MapReduce论文 MapReduce: Simplified Data Processing on Large Clusters"
+title:  "MapReduce: Simplified Data Processing on Large Clusters"
 date:   2021-11-22 20:34:01 +0800
 categories: "6.824"
 ---
