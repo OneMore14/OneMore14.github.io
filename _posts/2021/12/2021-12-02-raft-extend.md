@@ -3,6 +3,7 @@ layout: post
 title:  "In Search of an Understandable Consensus Algorithm"
 date:   2021-12-02 10:34:01 +0800
 categories: "6.824"
+typora-root-url: "../../../"
 ---
 
 
@@ -120,7 +121,7 @@ Raft协议中各server通过RPC通信。
 
 目前已经讨论了leader选举和复制log entry，但现有机制还不足以保证所有状态机按同样的顺序执行同样的命令。比如一个follower可能在leader commit log entry时宕机了，那么它就没有执行log entry中的命令。当它恢复后可能成为leader，然后重写这些log，不同的机器就可能执行不同的命令。
 
-本节将完善Raft算法，方法是添加成为leader的限制，限制是leader必须拥有之前所有committed log。
+本节将完善Raft算法，方法是添加成为leader的限制，限制是leader必须拥有之前所有committed log(图3中的Leader Completeness Property)。
 
 ##### 5.4.1 Election restriction
 
