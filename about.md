@@ -3,8 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-
-和自己赛跑
+西部世界!
 
 <!-- You can find the source code for Minima at GitHub:
 [jekyll][jekyll-organization] / -->
