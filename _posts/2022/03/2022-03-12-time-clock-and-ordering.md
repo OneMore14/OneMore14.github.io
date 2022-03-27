@@ -3,7 +3,7 @@ layout: post
 title:  "Time, Clocks, and the Ordering of Events in a Distributed System"
 date:   2022-03-12 11:43:01 +0800
 categories: "分布式"
-typora-root-url: "../../../"
+typora-root-url: ../../../
 
 ---
 
