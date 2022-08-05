@@ -3,7 +3,7 @@ layout: post
 title:  "Kademlia: A Peer-to-Peer Information System Basedonthe XOR Metric"
 date:   2022-03-28 22:43:01 +0800
 tag: "distributed system"
-typora-root-url: ../../../
+typora-root-url:../../../
 ---
 
  推荐读paper前先看[这个](https://codethechange.stanford.edu/guides/guide_kademlia.html)，非常好地解释了XOR的来源      
