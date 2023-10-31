@@ -6,7 +6,6 @@ tag: "distributed system"
 typora-root-url:../../../
 ---
 
-推荐读paper前先看[这个](https://codethechange.stanford.edu/guides/guide_kademlia.html)，非常好地解释了XOR的来源.  We describe a peer-to-peer distributed hash table with provable consistency and performance in a fault-prone environment.
 
 ## 1 Introduction
 
