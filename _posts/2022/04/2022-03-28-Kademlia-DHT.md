@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "CMU15-445 2021 Fall bustub实验记录2"
+title:  "Kademlia: A Peer-to-Peer Information System Basedonthe XOR Metric"
 date:   2022-03-28 22:43:01 +0800
-tags: "labs"
+tags: ""
 typora-root-url: ../../../
 ---
 
-aaaa
+
 
 ## 1 Introduction
 
