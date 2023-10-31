@@ -2,7 +2,7 @@
 layout: post
 title:  "Kademlia: A Peer-to-Peer Information System Basedonthe XOR Metric"
 date:   2022-03-28 22:43:01 +0800
-tags: "distributed system"
+tags: "distributed_system"
 typora-root-url: ../../../
 ---
 
