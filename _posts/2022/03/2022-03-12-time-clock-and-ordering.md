@@ -191,7 +191,7 @@ typora-root-url: ../../../
 
 接下来描述让PC2成立的一种实现。让$$m$$ 是在物理时钟 $$t$$ 时刻发送，$$t'$$ 接收的消息。定义$$v_m = t' - t$$ 为总延时(total delay). 这个延时当然只会在 m 被接收时才能计算得出，但我们可以引入一个 minimum delay $$\mu_m \ge 0$$ 且 $$\mu_m \le v_m$$，我们称$$\xi_m = v_m - \mu_m$$ 为unpredictable delay. 然后给出实现的两个要求
 
-* **IR1'** for each $i$, if $P_i$ does not receive a message at physical time $t$, then $C_i$ is differentiable at $t$ and $dC_i(t) / dt > 0$ (注: 就是时钟必须严格递增)
+* **IR1'** for each $$i$$, if $$P_i$$ does not receive a message at physical time $$t$$, then $$C_i$$ is differentiable at $$t$$ and  $$dC_i(t) / dt > 0$$  (注: 就是时钟必须严格递增)
 * **IR2'**  (a) If $P_i$ sends a message $m$ at physical time $t$, then $m$ contains a timestamp $T_m = C_i(t)$      (b) Upon receiving a message $m$ at time $t'$ , process $P_j$ sets $C_j(t') = max(C_j(t' - 0), T_m + \mu_m)$ (todo: 为什么不是$v_m$)
 
 为了简便，只考虑事件发生在某个准确的物理时刻，且同一进程的不同事件发生的时刻不同。不需要考虑实际上事件会持续一小段时间，而要关心离散时钟频率是否够快，如果慢了就不能保证C1。
