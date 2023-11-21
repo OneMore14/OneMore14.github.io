@@ -127,7 +127,7 @@ typora-root-url: ../../../
 
 ​         算法按以下5条规则定义(rule)。为了方便，认为每条规则的动作都是单个事件
 
-1. 为了请求资源，进程$P_i$ 发送消息$T_m:P_i$ request resource给其他所有进程，并且把这条消息放入自己的request queue。$T_m$是消息的时间戳
+1. 为了请求资源，进程$$P_i$$ 发送消息$$T_m:P_i$$ request resource给其他所有进程，并且把这条消息放入自己的request queue。$$T_m$$是消息的时间戳
 
 2. 当进程$P_j$接收到消息$T_m:P_i$ request resource ，将这条消息放进自己的request queue并且发送一条带时间戳的确认消息给$P_i$
 
