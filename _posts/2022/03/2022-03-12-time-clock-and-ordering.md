@@ -60,16 +60,16 @@ typora-root-url: ../../../
 
 ## Logical Clocks
 
-​        现在为系统引入时钟，一开始的抽象时钟只是为事件分配一个编号。更准确的说，为每个进程$P_i$ 定义一个时钟$C_i$，时钟将为进程中的每个事件$a$分配编号$C_i\langle a\rangle$ 。目前认为这是一个逻辑时钟，可以通过计数器实现而不借助任何真正的计时工具。
+​        现在为系统引入时钟，一开始的抽象时钟只是为事件分配一个编号。更准确的说，为每个进程$$P_i$$ 定义一个时钟$$C_i$$，时钟将为进程中的每个事件$$a$$分配编号$$C_i\langle a\rangle$$ 。目前认为这是一个逻辑时钟，可以通过计数器实现而不借助任何真正的计时工具。
 
 ​        然后考虑这样的时钟系统正确性意味着什么，我们不能基于物理时间的定义，我们只能基于事件发生的先后顺序。最严格的条件是如果事件a发生在事件b之前，那么事件a应该在事件b发生前的某个时间发生，更正式的，有:
 
-* **Clock Condition**: for any events a, b: if a → b，那么$C\langle a\rangle$ < $C\langle b\rangle$
+* **Clock Condition**: for any events a, b: if a → b，那么$$C\langle a\rangle$$ < $$C\langle b\rangle$$
 
-​        注意我们不能从$a\nrightarrow b$推导出两者时钟上的关系。但可以从$\rightarrow$ 关系中推导出其满足以下两个条件
+​        注意我们不能从$$a\nrightarrow b$$推导出两者时钟上的关系。但可以从$\rightarrow$ 关系中推导出其满足以下两个条件
 
-* **C1.** if a and b are events in process $P_i$, and a comes before b, then $C_i\langle a\rangle < C_i\langle b\rangle$ 
-* **C2.** if a is the sending of a message by process $P_i$ and b is the receipt of that message by process $P_j$, then $C_i\langle a\rangle < C_j\langle b\rangle$ 
+* **C1.** if a and b are events in process $$P_i$$, and a comes before b, then $$C_i\langle a\rangle < C_i\langle b\rangle$$ 
+* **C2.** if a is the sending of a message by process $P_i$ and b is the receipt of that message by process $$P_j$$, then $$C_i\langle a\rangle < C_j\langle b\rangle$$
 
 
 
@@ -129,27 +129,27 @@ typora-root-url: ../../../
 
 1. 为了请求资源，进程$$P_i$$ 发送消息$$T_m:P_i$$ request resource给其他所有进程，并且把这条消息放入自己的request queue。$$T_m$$是消息的时间戳
 
-2. 当进程$P_j$接收到消息$T_m:P_i$ request resource ，将这条消息放进自己的request queue并且发送一条带时间戳的确认消息给$P_i$
+2. 当进程$P_j$接收到消息$$T_m:P_i$$ request resource ，将这条消息放进自己的request queue并且发送一条带时间戳的确认消息给$$P_i$$
 
-3. 为了释放资源，进程$P_i$从request queue中移除所有$T_m:P_i$ request resource消息并且发送一条带时间戳的$P_i$ release resource消息给其他所有进程
+3. 为了释放资源，进程$$P_i$$从request queue中移除所有$$T_m:P_i$$ request resource消息并且发送一条带时间戳的$$P_i$$ release resource消息给其他所有进程
 
-4. 当进程$P_j$收到$P_i$的release消息，就移除其request queue中所有的$T_m:P_i$ request消息
+4. 当进程$$P_j$$收到$$P_i$$的release消息，就移除其request queue中所有的$$T_m:P_i$$ request消息
 
-5. 进程$P_i$被授权资源时需要满足两个条件
+5. 进程$$P_i$$被授权资源时需要满足两个条件
 
-   (a) 有一条$T_m:P_i$ request消息在其request queue中且比队列中其他所有请求按关系$\Rightarrow$(消息按发送时间排序)都更早
+   (a) 有一条$$T_m:P_i$$ request消息在其request queue中且比队列中其他所有请求按关系$\Rightarrow$(消息按发送时间排序)都更早
 
-   (b) $P_i$在$T_m$时间后有收到其他**所有**进程的消息(注: 没有规定一定是ACK)
+   (b) $$P_i$$在$$T_m$$时间后有收到其他**所有**进程的消息(注: 没有规定一定是ACK)
 
 ​        需要注意条件5是完全由$P_i$自己在本地检测的。
 
-​        容易证明上述算法满足上文的条件(1)~(3)。首先，观察rule5的条件(b)，同时有消息按顺序接收的假设，保证了$P_i$已经知道了在自己请求前的所有请求。由于只有rule3和4可以删除request queue中的消息，可以证明条件(1)成立。
+​        容易证明上述算法满足上文的条件(1)~(3)。首先，观察rule5的条件(b)，同时有消息按顺序接收的假设，保证了$$P_i$$已经知道了在自己请求前的所有请求。由于只有rule3和4可以删除request queue中的消息，可以证明条件(1)成立。
 
 *(注: 证明: 如果条件(1)不成立，即资源在被下次授权前没有释放的话，那么request queue中就还有本次已获得授权的请求，破坏了rule5中条件(a) )*
 
 ​        条件(2)成立的原因是定义了全序关系，而且rule2保证了在$P_i$发起请求后，rule5 (b)最终会成立。
 
-*(注: 这里不是很懂为什么这样证明了条件2成立？一种粗浅的理解: 我猜这个request queue存消息应该是按全序关系排序的？那么这样的话两个几乎同时发起的请求之间有确定的先后顺序。假设现在两个进程一前一后非常近时间地发起了请求，进程A的请求先于进程B的请求，在A和B收到对方的请求之前(消息延迟)，各自请求在自己的request queue中都是排名第一的，这时如果没有rule5 (b)，A和B会同时获取资源。而造成这个问题的原因是A和B各自发起的请求都还没有完全通知到其他进程，因此rule5 (b)实际确保了进程发起的请求已经通知到其他所有进程。这里还有一点比较tricky的是，这个问题首先就假设好了消息从进程$P_i$到进程$P_j$的接收顺序和发送顺序一样，即消息是FIFO的，那么进程A在收到自己的确认前一定收到了B的请求，进程B在收到自己的确认前也一定收到了A的请求。再进一步，进程A在收到某个确认X时，一定收到了进程X发出确认前的所有请求(我们并不关心发出确认后的请求，因为之后的请求一定比A当前的请求晚)。所以进程A收到所有确认时，实际是和所有其他进程沟通好了当前请求和其他请求的相对位置)*
+*(注: 这里不是很懂为什么这样证明了条件2成立？一种粗浅的理解: 我猜这个request queue存消息应该是按全序关系排序的？那么这样的话两个几乎同时发起的请求之间有确定的先后顺序。假设现在两个进程一前一后非常近时间地发起了请求，进程A的请求先于进程B的请求，在A和B收到对方的请求之前(消息延迟)，各自请求在自己的request queue中都是排名第一的，这时如果没有rule5 (b)，A和B会同时获取资源。而造成这个问题的原因是A和B各自发起的请求都还没有完全通知到其他进程，因此rule5 (b)实际确保了进程发起的请求已经通知到其他所有进程。这里还有一点比较tricky的是，这个问题首先就假设好了消息从进程$$P_i$$到进程$$P_j$$的接收顺序和发送顺序一样，即消息是FIFO的，那么进程A在收到自己的确认前一定收到了B的请求，进程B在收到自己的确认前也一定收到了A的请求。再进一步，进程A在收到某个确认X时，一定收到了进程X发出确认前的所有请求(我们并不关心发出确认后的请求，因为之后的请求一定比A当前的请求晚)。所以进程A收到所有确认时，实际是和所有其他进程沟通好了当前请求和其他请求的相对位置)*
 
 ​        Rule3和4意味着如果每个被授权资源的进程最终都能释放资源，那么rule5 (a)最终会成立，这证明了条件3.
 
@@ -173,11 +173,11 @@ typora-root-url: ../../../
 
 引入物理时钟到系统中，设在物理时间$$t$$ 读时钟 $$C_i$$ 的值为 $$C_i(t)$$，为了方便，我们设定时钟是连续的而不是离散的。更正式的，假设$$C_i(t)$$ 是连续，可微的函数，只有在时钟被重置时发生跳跃。考虑到物理时钟的实际情况，需要保证 $$dC_i(t) / dt \approx 1$$ for all t. 更正式的，需要保证下面的条件
 
-* **PC1.** There exists a constant $$\kappa \ll 1$$ such that for all $$i$$ : $$|dC_i(t) / dt - 1| < \kappa$$
+* **PC1** There exists a constant $$\kappa \ll 1$$ such that for all $$i$$ : $$|dC_i(t) / dt - 1| < \kappa$$
 
 此外，还要保证各个进程的时钟误差不大
 
-* **PC2.** For all $$i, j$$ : $$|C_i(t) - C_j(t)| < \epsilon$$
+* **PC2** For all $$i, j$$ : $$|C_i(t) - C_j(t)| < \epsilon$$
 
 由于不同时钟一定不会按相同速率运行，误差会越来越大，因此需要某种机制进行时钟同步，来保证PC2永远成立。
 
