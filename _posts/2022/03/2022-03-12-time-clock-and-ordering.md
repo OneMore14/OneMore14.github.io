@@ -81,29 +81,29 @@ typora-root-url: ../../../
 
 ​        我们可以把tick line看作是某个笛卡尔坐标系的时间坐标轴，然后在图二的基础上拉直这些tick line。在没有引入物理时间概念(需要引入物理时钟)时，不能区分图二和图三哪种表达方式更好。
 
-​        让我们假设这些进程是算法，事件代表进程执行过程中的某个动作。接下来将展示如何引入时钟(仍然是逻辑时钟)到进程且满足时钟条件(Clock Condition)。进程$P_i$的时钟由一个寄存器$C_i$表示，$C_i$的值会在事件间改变，因此其值的改变并不代表有新的事件产生。
+​        让我们假设这些进程是算法，事件代表进程执行过程中的某个动作。接下来将展示如何引入时钟(仍然是逻辑时钟)到进程且满足时钟条件(Clock Condition)。进程$P_i$的时钟由一个寄存器$$C_i$$表示，$$C_i$$的值会在事件间改变，因此其值的改变并不代表有新的事件产生。
 
 ​        为了保证系统满足Clock Condition，我们需要保证满足C1和C2。条件C1很简单，只用遵守以下实现规则:
 
-* **IR1.** Each process $P_i$ increments $C_i$ between any two successive events
+* **IR1.** Each process $$P_i$$ increments $$C_i$$ between any two successive events
 
-​        为了满足条件C2，我们需要每条消息m包含一个时间戳$T_m$，$T_m$的值就是该消息发送出去的时间。当进程收到一个时间戳为$T_m$的消息时，其必须快进时钟到大于$T_m$的时刻，准确地说，有以下规则
+​        为了满足条件C2，我们需要每条消息m包含一个时间戳$$T_m$$，$$T_m$$的值就是该消息发送出去的时间。当进程收到一个时间戳为$$T_m$$的消息时，其必须快进时钟到大于$$T_m$$的时刻，准确地说，有以下规则
 
-* **IR2.** (a) If event a is the sending of a message m by process $P_i$, then the message m contains a timestamp $T_m = C_i\langle a\rangle$ 
+* **IR2.** (a) If event a is the sending of a message m by process $$P_i$$, then the message m contains a timestamp $$T_m = C_i\langle a\rangle$$ 
 
-  ​        (b) Upon receiving a message m, process $P_j$ sets $C_j$ greater than or equal to its present value and greater than $T_m$
+  ​        (b) Upon receiving a message m, process $$P_j$$ sets $$C_j$$ greater than or equal to its present value and greater than $$T_m$$
 
-​        在IR2(b)中，我们认为接收消息m的事件发生在设置$C_j$后。很明显，IR1和IR2保证满足了Clock Condition
+​        在IR2(b)中，我们认为接收消息m的事件发生在设置$$C_j$$后。很明显，IR1和IR2保证满足了Clock Condition
 
 ## Ordering the Events Totally
 
 ​        我们可以使用满足Clock Condition的时钟系统来为所有的事件排序。我们可以简单根据事件发生的时间进行排序。为了打破平局的情况(注: 指事件时钟相同)，我们使用进程的任意全排序(total ordering)$\prec$ *(注: 可以先简单理解为给每个进程分配了互不相同的优先级)*。更准确地，定义以下一种关系$\Rightarrow$ :
 
-​        如果a是进程$P_i$的事件，b是进程$P_j$的事件，那么$a\Rightarrow b$有且只有当(1)$C_i\langle a\rangle < C_j\langle b\rangle$ 或者(2) $C_i\langle a\rangle = C_j\langle b\rangle$且$P_i \prec P_j$ 
+​        如果a是进程$P_i$的事件，b是进程$$P_j$$的事件，那么$$a\Rightarrow b$$有且只有当(1)$$C_i\langle a\rangle < C_j\langle b\rangle$$ 或者(2) $C_i\langle a\rangle = C_j\langle b\rangle$且$$P_i \prec P_j$$ 
 
-​        很容易看出这定义了全序关系，且Clock Condition暗示了如果$a \rightarrow b$ 则有$a \Rightarrow b$。也就是说，关系$\Rightarrow$是补充了happened before的偏序关系为全序关系
+​        很容易看出这定义了全序关系，且Clock Condition暗示了如果$$a \rightarrow b$$ 则有$$a \Rightarrow b$$。也就是说，关系$$\Rightarrow$$是补充了happened before的偏序关系为全序关系
 
-​        关系$\Rightarrow$取决于系统的时钟$C_i$ ，并且不唯一。满足Clock Condition的不同时钟选择会产生不同的关系$\Rightarrow$.给定任何从关系$\rightarrow$扩展来的关系$\Rightarrow$，总有一种时钟系统能满足Clock Condition且生成关系$\Rightarrow$。只有关系$\rightarrow$是由系统的事件唯一确定的 
+​        关系$\Rightarrow$取决于系统的时钟$$C_i$$ ，并且不唯一。满足Clock Condition的不同时钟选择会产生不同的关系$$\Rightarrow$$.给定任何从关系$\rightarrow$扩展来的关系$$\Rightarrow$$，总有一种时钟系统能满足Clock Condition且生成关系$$\Rightarrow$$。只有关系$$\rightarrow$$是由系统的事件唯一确定的 
 
 ​        能对所有事件全排序对实现分布式系统是非常有帮助的。实际上，正确实现逻辑时钟的原因就是为了获得这样的全序关系。使用这种全序关系，可以解决以下问题。
 
@@ -137,7 +137,7 @@ typora-root-url: ../../../
 
 5. 进程$$P_i$$被授权资源时需要满足两个条件
 
-   (a) 有一条$$T_m:P_i$$ request消息在其request queue中且比队列中其他所有请求按关系$\Rightarrow$(消息按发送时间排序)都更早
+   (a) 有一条$$T_m:P_i$$ request消息在其request queue中且比队列中其他所有请求按关系$$\Rightarrow$$(消息按发送时间排序)都更早
 
    (b) $$P_i$$在$$T_m$$时间后有收到其他**所有**进程的消息(注: 没有规定一定是ACK)
 
@@ -173,11 +173,11 @@ typora-root-url: ../../../
 
 引入物理时钟到系统中，设在物理时间$$t$$ 读时钟 $$C_i$$ 的值为 $$C_i(t)$$，为了方便，我们设定时钟是连续的而不是离散的。更正式的，假设$$C_i(t)$$ 是连续，可微的函数，只有在时钟被重置时发生跳跃。考虑到物理时钟的实际情况，需要保证 $$dC_i(t) / dt \approx 1$$ for all t. 更正式的，需要保证下面的条件
 
-* **PC1** There exists a constant $$\kappa \ll 1$$ such that for all $$i$$ : $$|dC_i(t) / dt - 1| < \kappa$$
+* **PC1** There exists a constant $$\kappa \ll 1$$ such that for all $$i: |dC_i(t) / dt - 1| < \kappa$$
 
 此外，还要保证各个进程的时钟误差不大
 
-* **PC2** For all $$i, j$$ : $$|C_i(t) - C_j(t)| < \epsilon$$
+* **PC2** For all $$i, j$$  :  $$|C_i(t) - C_j(t)| < \epsilon$$
 
 由于不同时钟一定不会按相同速率运行，误差会越来越大，因此需要某种机制进行时钟同步，来保证PC2永远成立。
 
