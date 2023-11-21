@@ -173,11 +173,11 @@ typora-root-url: ../../../
 
 引入物理时钟到系统中，设在物理时间$$t$$ 读时钟 $$C_i$$ 的值为 $$C_i(t)$$，为了方便，我们设定时钟是连续的而不是离散的。更正式的，假设$$C_i(t)$$ 是连续，可微的函数，只有在时钟被重置时发生跳跃。考虑到物理时钟的实际情况，需要保证 $$dC_i(t) / dt \approx 1$$ for all t. 更正式的，需要保证下面的条件
 
-* **PC1** There exists a constant $$\kappa \ll 1$$ such that for all $$i: |dC_i(t) / dt - 1| < \kappa$$
+* **PC1** There exists a constant $$\kappa \ll 1$$ such that for all $$i: \left\vert dC_i(t) / dt - 1 \right\vert < \kappa$$
 
 此外，还要保证各个进程的时钟误差不大
 
-* **PC2** For all $$i, j$$  :  $$| C_i(t) - C_j(t) | < \epsilon$$
+* **PC2** For all $$i, j$$  :  $$\left\vert C_i(t) - C_j(t) \right\vert < \epsilon$$
 
 由于不同时钟一定不会按相同速率运行，误差会越来越大，因此需要某种机制进行时钟同步，来保证PC2永远成立。
 
