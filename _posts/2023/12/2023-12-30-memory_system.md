@@ -57,5 +57,5 @@ row : rank : bank : channel : column : block offset
 
 
 
-回到原来的问题，两个线程能提速是利用了DRAM的并行处理能力。
+回到原来的问题，两个线程能提速是利用了DRAM的并行处理能力。而我们常说的内存慢，其实是指latency很大。
 
