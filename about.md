@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-喜欢system，尤其是跟性能相关的，加速！
+喜欢system，尤其和性能相关的，求带
 
 <!-- You can find the source code for Minima at GitHub:
 [jekyll][jekyll-organization] / -->
