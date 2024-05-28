@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Reading list"
-date:   2024-05-29 10:43:01 +0800
+date:   2024-05-28 10:43:01 +0800
 tags: list
 typora-root-url: ../../../
 ---
@@ -15,8 +15,9 @@ typora-root-url: ../../../
 ## 0. websites
 
 * [Supertech Research Group](http://supertech.mit.edu/)  The Supertech Research Group investigates the technologies that support scalable high-performance computing, including hardware, software, and theory.
-
 * [REPRODUCING NETWORK RESEARCH](https://reproducingnetworkresearch.wordpress.com/) 研究网络的
+* [Johnny's Software Lab](https://johnnysswlab.com/) 关注软件性能
+* [uops.info](https://uops.info/index.html) 从x86 microarchitectures 角度分析latency，throughput等性能指标 
 
 ## 1. 体系结构
 
@@ -64,3 +65,8 @@ typora-root-url: ../../../
 * [Making Linux TCP Fast](https://netdevconf.org/1.2/papers/bbr-netdev-1.2.new.new.pdf) TCP中关于拥塞控制，发送速率，packet size优化
 * [BBR: Congestion-Based Congestion Control](https://queue.acm.org/detail.cfm?id=3022184) 新的拥塞控制算法，计算RTT和bottleneck bandwidth来做拥塞控制
 * [TCP Fast Open](https://conferences.sigcomm.org/co-next/2011/papers/1569470463.pdf) 在TCP握手阶段发送数据，降低延迟
+
+
+
+
+
