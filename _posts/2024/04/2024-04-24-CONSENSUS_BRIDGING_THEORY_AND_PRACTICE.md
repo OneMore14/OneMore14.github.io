@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rust Undifined Behavior"
+title:  "Raft"
 date:   2024-04-20 10:43:01 +0800
 tags: distributed-system
 typora-root-url: ../../../
