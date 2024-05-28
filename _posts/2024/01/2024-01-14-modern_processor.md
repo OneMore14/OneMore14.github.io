@@ -6,6 +6,8 @@ tags: architecture
 typora-root-url: ../../../
 ---
 
+书名: Modern Processor Design: Fundamentals of Superscalar Processors
+
 ## 1. Processor Design
 
 主要讲述一些设计思想和计算性能指标。
@@ -45,7 +47,7 @@ the resolving of pipeline hazards via hardware mechanisms is referred to as *pip
 
 
 
-![image-20240108161303706](/home/sunjian/.config/Typora/typora-user-images/image-20240108161303706.png)
+![image-20240108161303706](/assets/2024/01/processor1.png)
 
 486处理器在decode阶段做地址翻译，在EXE阶段访问内存，但是x86系统还有microcode结构。
 
@@ -81,7 +83,7 @@ Superscalar Pipelines优点
 
 以一种简单的6-stage超标量流水线为例，这里的stage是logical的，不代表物理上这样划分。
 
-![image-20240108211949530](/home/sunjian/.config/Typora/typora-user-images/image-20240108211949530.png)
+![image-20240108211949530](/assets/2024/01/processor2.png)
 
 #### 4.3.1 Instruction Fetching
 
@@ -251,7 +253,7 @@ P6在90年代问世，就是后面的奔腾处理器使用的架构，in-order f
 
 主要分3个阶段，依次介绍
 
-![image-20240111160224032](/home/sunjian/.config/Typora/typora-user-images/image-20240111160224032.png)
+![image-20240111160224032](/assets/2024/01/processor3.png)
 
 #### 7.2.1 In-Order Front-End Pipeline
 
@@ -279,7 +281,7 @@ Intel的ROB需要再把微指令组成完整的IA32指令，不能一次只commi
 
 这个阶段的核心任务是尽可能取指令“喂饱”执行单元，当执行单元发现有分支预测错误时，会理解让FE从正确的地址取指令，但自己会继续执行指令，并且retire在跳转前的指令，并且执行单元会排空，如下图
 
-![image-20240112113621883](/home/sunjian/.config/Typora/typora-user-images/image-20240112113621883.png)
+![image-20240112113621883](/assets/2024/01/processor4.png)
 
 
 
@@ -299,7 +301,7 @@ ID的第一个阶段是instruction steering block (ISB)，负责将指令顺序�
 
 #### 7.3.4 Register Alias Table
 
-![image-20240112163835045](/home/sunjian/.config/Typora/typora-user-images/image-20240112163835045.png)
+![image-20240112163835045](/assets/2024/01/processor5.png)
 
 register alias table (RAT)将寄存器映射到ROB中。
 
@@ -339,7 +341,7 @@ RS在issue load/store指令的时候，就会给它们在MOB分配对应的entry
 
 
 
-![image-20240115112745249](/home/sunjian/.config/Typora/typora-user-images/image-20240115112745249.png)
+![image-20240115112745249](/assets/2024/01/processor6.png)
 
 MESI协议，注意S状态和I状态，当要写时，一个是发起的bus upgrade，一个是发起bus write，不一样的。
 
