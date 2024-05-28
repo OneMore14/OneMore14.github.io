@@ -2,7 +2,7 @@
 layout: post
 title:  "A Primer on Memory Consistency and Cache Coherence"
 date:   2024-02-14 10:43:01 +0800
-tags: algorithm
+tags: architecture
 typora-root-url: ../../../
 ---
 
