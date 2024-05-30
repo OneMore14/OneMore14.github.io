@@ -6,7 +6,7 @@ tags: concurrency distributed-system
 typora-root-url: ../../../
 ---
 
-评价: Linearizability用时间将不同的process联系起来，是比SC更严格的一致性模型，也更符合现实生活。
+评价: Linearizability用时间将不同的process联系起来，是比SC更严格的一致性模型，也更符合现实生活。此外，linearizability具有组合性。
 
 
 ## 1. INTRODUCTION 
@@ -97,9 +97,9 @@ A property $$P$$ of a concurrent system is said to be local if the system as a w
 
 Linearizability is a local property.
 
-**THEOREM 1.**  $$H$$ is linearizable if and only if, for each object $$x$$, $$H|x$$ is linearizable.
+**THEOREM 1.**  $$H$$ is linearizable if and only if, for each object $$x$$,  $$H \textbar x$$ is linearizable.
 
-证明, "only if"的部分是显然的。对每个$$x$$，选择一个$$H|x$$的linearization. Let $$R_X$$ be the set of responses appended to $$H|x$$ to construct that linearization, and let $$<_x$$ be the corresponding linearization order. Let $$H'$$ be the history constructed by appending to $$H$$ each response in $$R_x$$. 然后要在complete($$H'$$) 上构建一个偏序 $$<$$，且
+证明, "only if"的部分是显然的。对每个$$x$$，选择一个$$H|x$$的linearization. Let $$R_X$$ be the set of responses appended to $$H \textbar x$$ to construct that linearization, and let $$<_x$$ be the corresponding linearization order. Let $$H'$$ be the history constructed by appending to $$H$$ each response in $$R_x$$. 然后要在complete($$H'$$) 上构建一个偏序 $$<$$，且
 
 (1)对所有$$x$$，$$<_x \subseteq <$$ ,
 
