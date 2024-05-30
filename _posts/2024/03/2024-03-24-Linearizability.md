@@ -40,11 +40,11 @@ A history $$H$$ is *sequential* if:
 
 process subhistory, $$H \vert P$$ 是 $$H$$  中所有属于进程 $$P$$ 的事件.
 
-object subhistory   $$H|x$$ 是 $$H$$ 中所有属于变量 $$x$$ 的事件.
+object subhistory   $$H \vert x$$ 是 $$H$$ 中所有属于变量 $$x$$ 的事件.
 
-两个历史  $$H$$ 和 $$H'$$ 是 *equivalent* ，如果对所有进程$$P$$, 有 $$H|P = H'|P$$
+两个历史  $$H$$ 和 $$H'$$ 是 *equivalent* ，如果对所有进程$$P$$, 有 $$H \vert P = H' \vert P$$
 
-A history $$H$$ is *well-formed* if each process subhistory $$H|P$$ of $$H$$ is sequential.  本文中所有的历史 $$H$$ 都认为是well-formed的。(很自然，因为线程本身就是顺序执行的)
+A history $$H$$ is *well-formed* if each process subhistory $$H \vert P$$ of $$H$$ is sequential.  本文中所有的历史 $$H$$ 都认为是well-formed的。(很自然，因为线程本身就是顺序执行的)
 
 A set $$S$$ of histories is *prefix-closed* if, whenever $$H$$ is in $$S$$, every prefix of $$H$$ is also in $$S$$.
 
@@ -52,7 +52,7 @@ A *single-object* history is one in which all events are associated with the sam
 
 A *sequential specification* for an object is a prefix-closed set of single-object sequential histories for that object.
 
-A sequential history $$H$$ is *legal* if each object subhistory $$H|x$$ belongs to the sequential specification for $$x$$.
+A sequential history $$H$$ is *legal* if each object subhistory $$H \vert x$$ belongs to the sequential specification for $$x$$.
 
 An *operation*, $$e$$, in a history is a pair of consisting of an invocation, $$inv(e)$$, and the next matching response, $$res(e)$$.
 
@@ -99,7 +99,7 @@ Linearizability is a local property.
 
 **THEOREM 1.**  $$H$$ is linearizable if and only if, for each object $$x$$,  $$H \textbar x$$ is linearizable.
 
-证明, "only if"的部分是显然的。对每个$$x$$，选择一个$$H|x$$的linearization. Let $$R_X$$ be the set of responses appended to $$H \textbar x$$ to construct that linearization, and let $$<_x$$ be the corresponding linearization order. Let $$H'$$ be the history constructed by appending to $$H$$ each response in $$R_x$$. 然后要在complete($$H'$$) 上构建一个偏序 $$<$$，且
+证明, "only if"的部分是显然的。对每个$$x$$，选择一个$$H \vert x$$的linearization. Let $$R_X$$ be the set of responses appended to $$H \textbar x$$ to construct that linearization, and let $$<_x$$ be the corresponding linearization order. Let $$H'$$ be the history constructed by appending to $$H$$ each response in $$R_x$$. 然后要在complete($$H'$$) 上构建一个偏序 $$<$$，且
 
 (1)对所有$$x$$，$$<_x \subseteq <$$ ,
 
@@ -156,11 +156,11 @@ Ok(y)  B
 ## 4. VERIFYING THAT IMPLEMENTATIONS ARE LINEARIZABLE
  ### 4.1 Definition of Correctness
 
-An *implementation* is a set of histories in which events of two objects, a representation (or rep) object **REP** of type REP and an abstract object **ABS** of type ABS. 对于implementation中的每一个history $$H$$，有(1). the subhistories $$H|REP$$ and $$H|ABS$$ satisfy the usual well-formedness conditions; (2). 对每个进程$$P$$， each rep operation in $$H|REP$$ lies within an abstract operation in $$H|P$$ 
+An *implementation* is a set of histories in which events of two objects, a representation (or rep) object **REP** of type REP and an abstract object **ABS** of type ABS. 对于implementation中的每一个history $$H$$，有(1). the subhistories $$H \vert REP$$ and $$H \vert ABS$$ satisfy the usual well-formedness conditions; (2). 对每个进程$$P$$， each rep operation in $$H \vert REP$$ lies within an abstract operation in $$H \vert P$$ 
 
 
 
-An implementation is ***correct*** with respect to the specification of ABS if for every history $$H$$ in the implementation, $$H|ABS$$ is linearizable.
+An implementation is ***correct*** with respect to the specification of ABS if for every history $$H$$ in the implementation, $$H \vert ABS$$ is linearizable.
 
 ### 4.2 Representation Invariant and Abstraction Function
 后续证明不好懂，等有需要时再更新，目前了解Linearizability概念即可。
