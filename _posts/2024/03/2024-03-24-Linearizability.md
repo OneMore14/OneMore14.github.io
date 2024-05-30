@@ -38,7 +38,7 @@ A history $$H$$ is *sequential* if:
 1.  The first event of $$H$$ is an invocation. 
 2. Each invocation, except possibly the last, is immediately followed by a matching response. Each response is immediately followed by a **matching** invocation. 
 
-process subhistory, $$H | P$$ 是 $$H$$  中所有属于进程 $$P$$ 的事件.
+process subhistory, $$H \| P$$ 是 $$H$$  中所有属于进程 $$P$$ 的事件.
 
 object subhistory   $$H|x$$ 是 $$H$$ 中所有属于变量 $$x$$ 的事件.
 
