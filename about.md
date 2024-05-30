@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-喜欢system，目标是用好OS和硬件。
+喜欢system，想用好OS和硬件。
 
 [github](https://github.com/OneMore14)
 
