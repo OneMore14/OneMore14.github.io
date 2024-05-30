@@ -14,7 +14,7 @@ typora-root-url: ../../../
 
 查数据库表的大小
 
-![img](https://i.stack.imgur.com/aeous.png)
+![image-1](/assets/2022/04/aeous.png)
 
 ```sql
 select pg_size_pretty(pg_relation_size('table_name'));
