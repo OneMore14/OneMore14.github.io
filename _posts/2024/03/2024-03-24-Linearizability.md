@@ -97,9 +97,9 @@ A property $$P$$ of a concurrent system is said to be local if the system as a w
 
 Linearizability is a local property.
 
-**THEOREM 1.**  $$H$$ is linearizable if and only if, for each object $$x$$,  $$H \textbar x$$ is linearizable.
+**THEOREM 1.**  $$H$$ is linearizable if and only if, for each object $$x$$,  $$H \vert x$$ is linearizable.
 
-证明, "only if"的部分是显然的。对每个$$x$$，选择一个$$H \vert x$$的linearization. Let $$R_X$$ be the set of responses appended to $$H \textbar x$$ to construct that linearization, and let $$<_x$$ be the corresponding linearization order. Let $$H'$$ be the history constructed by appending to $$H$$ each response in $$R_x$$. 然后要在complete($$H'$$) 上构建一个偏序 $$<$$，且
+证明, "only if"的部分是显然的。对每个$$x$$，选择一个$$H \vert x$$的linearization. Let $$R_X$$ be the set of responses appended to $$H \vert x$$ to construct that linearization, and let $$<_x$$ be the corresponding linearization order. Let $$H'$$ be the history constructed by appending to $$H$$ each response in $$R_x$$. 然后要在complete($$H'$$) 上构建一个偏序 $$<$$，且
 
 (1)对所有$$x$$，$$<_x \subseteq <$$ ,
 
