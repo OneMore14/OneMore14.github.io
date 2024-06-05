@@ -18,7 +18,7 @@ typora-root-url: ../../../
 
 ### 1.1 数组求和
 
-```asm
+```assembly
 loop:
   rCurInt = load64(rCurPtr);        // Load
   rSum = rSum + rCurInt;            // Sum
@@ -36,7 +36,7 @@ loop:
 
 ### 1.2 链表求和
 
-```asm
+```assembly
 loop:
   rCurInt = load64(rCurPtr);        // LoadInt
   rSum = rSum + rCurInt;            // Sum
@@ -149,7 +149,7 @@ public:
 
 假如我们将最初的数组求和展开成每个迭代累加2次，代码如下
 
-```asm
+```assembly
 loop:
   rCurInt = load64(rCurPtr);        // LoadEven
   rSum = rSum + rCurInt;            // SumEven
@@ -165,7 +165,7 @@ loop:
 
 为了进一步减少这种数据依赖，一种有效且简单的方式是让 SumEven 和 SumOdd 累加到不同的变量上，如下
 
-```asm
+```assembly
 loop:
   rCurInt = load64(rCurPtr);        // LoadEven
   rSumEven = rSumEven + rCurInt;    // SumEven
