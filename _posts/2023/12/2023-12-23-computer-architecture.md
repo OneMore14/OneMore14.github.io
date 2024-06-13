@@ -2,7 +2,7 @@
 
 layout: post
 title:  "公开课 Computer Architecture"
-date:   2023-11-22 10:43:01 +0800
+date:   2023-12-23 10:43:01 +0800
 tags: system
 typora-root-url: ../../../
 ---
